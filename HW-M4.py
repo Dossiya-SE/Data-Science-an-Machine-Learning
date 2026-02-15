@@ -3,14 +3,6 @@
 # Course: EEE 591
 # Assignment: Homework 4 (HW-M4)
 # Date: February 10, 2026
-#
-# AI Usage Statement:
-# I am a beginner in Python.
-# I used AI (ChatGPT) only for conceptual explanations of
-# mathematics, modeling, Python syntax, and commenting.
-# All code logic and implementation were written and
-# fully understood by me.
-# Link: https://chatgpt.com/share/e/698b21af-1c18-8004-b336-84e0c8a34dcb
 # ============================================================
 
 import sys
