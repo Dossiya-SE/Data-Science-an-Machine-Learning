@@ -1,0 +1,33 @@
+name: Adaptive visual audit
+
+on:
+  pull_request:
+    paths:
+      - "assets/ml-evidence-pipeline.svg"
+      - ".github/workflows/adaptive-visual-audit.yml"
+  push:
+    paths:
+      - "assets/ml-evidence-pipeline.svg"
+      - ".github/workflows/adaptive-visual-audit.yml"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate adaptive scientific SVG
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          p = Path('assets/ml-evidence-pipeline.svg')
+          text = p.read_text(encoding='utf-8')
+          root = ET.fromstring(text)
+          assert root.tag.endswith('svg')
+          assert root.attrib.get('viewBox') == '0 0 1600 720'
+          assert 'prefers-color-scheme:dark' in text.replace(' ', '')
+          assert '<title' in text and '<desc' in text
+          assert 'filter:invert' not in text.replace(' ', '').lower()
+          assert '<image' not in text.lower(), 'Scientific master must remain native vector SVG'
+          print('Adaptive ML SVG: PASS')
+          PY
