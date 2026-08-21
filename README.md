@@ -1,111 +1,32 @@
 # Data Science and Machine Learning — Learning Repository
 
-This repository is currently a **public learning scaffold**.
+<p align="center"><img src="assets/ml-evidence-pipeline.svg" width="100%" alt="Machine learning evidence pipeline" /></p>
 
-At the time of this README revision, the public `main` branch contains only this README and does **not** contain committed datasets, notebooks, model code, metrics, trained artifacts or reproducible experiments.
+**Current status: learning scaffold.** The visual is a **quality contract for future projects**, not evidence that a model has already been trained or validated here.
 
-That limitation is stated explicitly because a repository title is not evidence of completed machine-learning work.
+## Mathematical standard for future work
 
-## Current evidence status
-
-| Item | Status |
-|---|---|
-| Public README | present |
-| Data provenance | not yet committed |
-| Executable analysis code | not yet committed |
-| Train/validation/test protocol | not yet committed |
-| Model metrics | not yet committed |
-| Reproducible environment | not yet committed |
-| Automated tests / CI | not yet committed |
-| Model card / limitations | not yet committed |
-
-Therefore this repository should be read as **learning / work-in-progress**, not as evidence of a completed ML research pipeline.
-
-## Rigor standard for future additions
-
-A project added here should ideally contain the full chain:
-
-```text
-problem definition
-→ data provenance
-→ target / feature definitions
-→ train-validation-test split
-→ preprocessing fitted without leakage
-→ baseline
-→ model
-→ metrics + uncertainty
-→ diagnostics
-→ robustness / sensitivity
-→ interpretation
-→ limitations
-→ reproducible code
+```math
+\theta^*=\arg\min_\theta\sum_i \ell(f_\theta(x_i),y_i)+\lambda\Omega(\theta),
+\qquad
+\widehat R_{test}=n_{test}^{-1}\sum_i\ell(f_\theta(x_i),y_i).
 ```
 
-## Minimum project template
+A mature project must expose:
 
-```text
-project-name/
-├── README.md
-├── data/
-│   └── SOURCE.md              # provenance, license, access date, definitions
-├── notebooks/                 # exploration only
-├── src/                       # reusable implementation
-├── tests/                     # unit / regression tests
-├── outputs/                   # machine-readable metrics / figures
-├── requirements.txt / pyproject.toml
-└── MODEL_CARD.md              # intended use, metrics, limitations
-```
+`data provenance → honest split → leakage-safe preprocessing → baseline → model → out-of-sample metric → uncertainty → sensitivity → bounded interpretation`
 
-## Evaluation requirements
+## Promotion gate
 
-For supervised-learning work, the README should report at minimum:
+This repository becomes evidence-bearing only when at least one project contains executable source, environment/dependencies, data/source documentation, controlled experiments, reproducible outputs, evaluation metrics, uncertainty/sensitivity analysis and explicit limitations.
 
-- target definition;
-- sample size and data source;
-- split strategy;
-- baseline model;
-- preprocessing rules;
-- primary and secondary metrics;
-- class balance where relevant;
-- confidence intervals or resampling uncertainty where appropriate;
-- leakage controls;
-- error analysis;
-- sensitivity to important modeling choices;
-- limitations and out-of-distribution risks.
+## Scientific rules
 
-For unsupervised work, the repository should avoid presenting clusters as natural or causal categories without stability and domain validation.
+- accuracy alone is not evaluation;
+- test data are not tuning data;
+- predictive importance is not causal effect;
+- preprocessing can leak information;
+- a notebook alone is not a reproducible pipeline;
+- a high metric does not establish external validity.
 
-## Scientific-integrity rules
-
-1. **Accuracy alone is not a model evaluation.** Use metrics appropriate to the task and decision cost.
-2. **Test data are not tuning data.** Preserve an honest final evaluation set when possible.
-3. **Preprocessing can leak information.** Fit transformations on training data only unless the method justifies otherwise.
-4. **Association is not causation.** Predictive importance does not imply intervention effect.
-5. **A notebook is not a reproducible pipeline.** Reusable code, environment information and tests should accompany mature work.
-6. **A high metric is not external validity.** Document population, time, geography and distribution limits.
-
-## Planned role in the portfolio
-
-This repository will be promoted from a learning scaffold to an evidence-bearing portfolio component only after at least one project includes:
-
-- committed source/data provenance;
-- executable code;
-- deterministic or controlled experiments;
-- evaluation outputs;
-- documented assumptions and limitations;
-- reproducible execution instructions.
-
-Until then, the main GitHub profile labels this repository as a **learning archive / scaffold** rather than using it as evidence of completed machine-learning research.
-
-## Related evidence-bearing work
-
-For current public computational evidence, see:
-
-- [Mathematical Research Portfolio](https://github.com/Dossiya-SE/dossiya-se.github.io)
-- [Africa Energy Dignity](https://github.com/Dossiya-SE/africa-energy-dignity)
-- [Financial Engineering Models](https://github.com/Dossiya-SE/dossiyadakou-mac-project)
-- [Python for Rapid Engineering Solutions](https://github.com/Dossiya-SE/Python-for-rapid-engineering-solution)
-
----
-
-**Repository rule:** future claims will be proportional to committed evidence, not to the repository name.
+Current evidence-bearing work is in the [Mathematical Research Portfolio](https://github.com/Dossiya-SE/dossiya-se.github.io), [Africa Energy Dignity](https://github.com/Dossiya-SE/africa-energy-dignity), [Financial Engineering Models](https://github.com/Dossiya-SE/dossiyadakou-mac-project) and [Python for Rapid Engineering Solutions](https://github.com/Dossiya-SE/Python-for-rapid-engineering-solution).
