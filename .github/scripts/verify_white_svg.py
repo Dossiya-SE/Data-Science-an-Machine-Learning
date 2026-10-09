@@ -12,7 +12,7 @@ assert root.find(ns+"title") is not None and root.find(ns+"desc") is not None
 assert "--bg:#FFFFFF;--panel:#FFFFFF;" in raw
 assert "prefers-color-scheme:dark" not in raw
 assert "linearGradient" not in raw and "radialGradient" not in raw
-assert not re.search(r'<text\\b[^>]*fill="var\\(--bg\\)"', raw)
-assert not re.search(r'<rect\\b[^>]*fill="(?!#FFFFFF)"', raw)
-assert re.search(r'\\.panel\\{fill:var\\(--panel\\)', raw)
+assert not re.search(r'<text\b[^>]*fill="var\(--bg\)"', raw)
+assert not re.search(r'<rect\b[^>]*fill="(?!#FFFFFF)"', raw)
+assert re.search(r'\.panel\{fill:var\(--panel\)', raw)
 print(f"PASS {svg}: white authored panels, scientific outline roles and legible dark text")
